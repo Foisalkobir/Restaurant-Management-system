@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loyalty Program</title>
+  <link rel="stylesheet" href="../css/loyalty-program.css" />
+</head>
+<body>
+  <div class="loyalty-container">
+    <h2>Loyalty Program</h2>
+
+    <form id="loyalty-form">
+      <label for="customer-name">Customer Name:</label>
+      <input type="text" id="customer-name" placeholder="e.g., John Doe" required />
+
+      <label for="visits">Number of Visits:</label>
+      <input type="number" id="visits" placeholder="e.g., 5" required />
+
+      <label for="total-spent">Total Spent (৳):</label>
+      <input type="number" id="total-spent" placeholder="e.g., 2000" required />
+
+      <button type="submit">Check Loyalty Status</button>
+    </form>
+
+    <div id="loyalty-result" class="hidden">
+      <h3>Customer Status</h3>
+      <p><strong>Name:</strong> <span id="res-name"></span></p>
+      <p><strong>Visits:</strong> <span id="res-visits"></span></p>
+      <p><strong>Total Spent:</strong> <span id="res-spent"></span></p>
+      <p><strong>Points Earned:</strong> <span id="res-points"></span></p>
+      <p><strong>Tier Level:</strong> <span id="res-tier"></span></p>
+      <p><strong>Reward:</strong> <span id="res-reward"></span></p>
+    </div>
+  </div>
+
+  <script src="../jscript/loyalty-program.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Feedback</title>
+  <link rel="stylesheet" href="../css/customer-feedback.css" />
+</head>
+<body>
+  <div class="feedback-container">
+    <h2>Rate Your Dining Experience</h2>
+    <form id="feedback-form">
+      <label for="rating">Rating (1 to 5 stars):</label>
+      <select id="rating" required>
+        <option value="">Select</option>
+        <option value="1">1 ★</option>
+        <option value="2">2 ★★</option>
+        <option value="3">3 ★★★</option>
+        <option value="4">4 ★★★★</option>
+        <option value="5">5 ★★★★★</option>
+      </select>
+
+      <label for="comments">Your Comments:</label>
+      <textarea id="comments" rows="4" placeholder="Describe your experience..." required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <div id="response" class="hidden">
+      <h3>Thank you for your feedback!</h3>
+    </div>
+  </div>
+
+  <script src="../jscript/customer-feedback.js"></script>
+</body>
+</html>

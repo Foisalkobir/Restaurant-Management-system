@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Reports</title>
+  <link rel="stylesheet" href="../css/sales.css">
+</head>
+<body>
+  <div class="sales-container">
+    <h2>Sales Reports</h2>
+    <div class="filter">
+      <label for="date-filter">Select Date:</label>
+      <input type="date" id="date-filter">
+      <button onclick="filterSales()">Generate Report</button>
+    </div>
+
+    <table id="sales-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Date</th>
+          <th>Table</th>
+          <th>Items</th>
+          <th>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody id="sales-body">
+        <!-- Populated by JS -->
+      </tbody>
+    </table>
+
+    <p class="summary">Total Sales: <span id="total-sales">$0.00</span></p>
+  </div>
+
+  <script src="../jscript/sales.js"></script>
+</body>
+</html>

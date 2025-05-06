@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Tickets</title>
+  <link rel="stylesheet" href="../css/kitchen-tickets.css">
+</head>
+<body>
+  <div class="kitchen-container">
+    <h2>Kitchen Tickets</h2>
+    <form id="ticket-form">
+      <input type="text" id="table-number" placeholder="Table Number" required>
+      <input type="text" id="items" placeholder="Items Ordered (comma separated)" required>
+      <button type="submit">Create Ticket</button>
+    </form>
+
+    <div id="ticket-list" class="ticket-list">
+      <!-- Tickets will appear here -->
+    </div>
+  </div>
+
+  <script src="../jscript/kitchen-tickets.js"></script>
+</body>
+</html>
