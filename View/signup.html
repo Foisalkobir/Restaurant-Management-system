@@ -1,22 +1,49 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Signup</title>
-  <link rel="stylesheet" href="../CSS/signup.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Restaurant Management System</title>
+  <link rel="stylesheet" href="../Asset/css/style.css">
 </head>
 <body>
   <div class="auth-container">
-    <form id="signup-form" class="auth-form" method="POST" action="../signup.php" onsubmit="return validateform()">
+    <form id="signupForm" action="../Controller/signupCheck.php" method="POST" novalidate>
       <h2>Sign Up</h2>
-      <input type="text" id="signup-name" name="name" placeholder="Full Name" required>
-      <input type="number" id="signup-age" name="age" placeholder="Age" required>
-      <input type="text" id="signup-contact" name="contact" placeholder="Contact Number" required>
-      <input type="email" id="signup-email" name="email" placeholder="Email" required>
-      <input type="password" id="signup-password" name="password" placeholder="Password" required>
-      <input type="password" id="signup-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
-      <button type="submit" name="submit">Sign Up</button>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required minlength="6" placeholder="••••••">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" required minlength="6" placeholder="••••••">
+      </div>
+      <button type="submit" class="btn">Create Account</button>
+      <p class="small-text">Already have an account? <a href="../View/login.html">Login</a></p>
     </form>
   </div>
-  <script src="../jscript/signup.js"></script>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      var form = e.target;
+      var pwd = form.password.value;
+      var cpwd = form.confirm_password.value;
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        alert('Please fill out all fields correctly.');
+      } else if (pwd !== cpwd) {
+        e.preventDefault();
+        alert('Passwords do not match.');
+      }
+    });
+  </script>
 </body>
 </html>
