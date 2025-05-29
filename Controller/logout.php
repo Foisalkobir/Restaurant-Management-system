@@ -1,23 +1,21 @@
 <?php
-// Controller/logout.php – User logout
 session_start();
 
-// Unset all session variables
-$_SESSION = [];
+if (isset($_GET['confirm']) && $_GET['confirm'] === 'yes') {
+    $_SESSION = [];
+    session_destroy();
 
-// Destroy the session cookie
-if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(
-        session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
+    setcookie('status', '', time() - 3600, '/');
+
+    header('Location: ../view/landingpage.html');
+    exit;
 }
+?>
 
-// Destroy the session
-session_destroy();
-
-// Redirect to login page
-header('Location: ../View/login.php');
-exit;
+<script>
+if (confirm("Are you sure you want to log out?")) {
+    window.location.href = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?confirm=yes";
+} else {
+    window.history.back();
+}
+</script>

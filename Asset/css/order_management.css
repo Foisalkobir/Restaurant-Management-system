@@ -1,0 +1,112 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+/* Container for the content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Page heading */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: white;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+th, td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  color: #333;
+}
+
+th {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Buttons styled as per landingpage */
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.6);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.85);
+  transform: translateY(-3px);
+}
+
+/* Success and error messages */
+.success {
+  color: #27ae60;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px #27ae60;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px #e74c3c;
+}
+
+/* Back button at bottom */
+a.back {
+  display: inline-block;
+  margin-top: 2rem;
+  color: white;
+  background: linear-gradient(45deg, #4353b3, #667eea);
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+a.back:hover {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.85);
+  transform: translateY(-3px);
+}

@@ -1,0 +1,303 @@
+/* reservation_management.css */
+/* Following landingpage.css style and color combos */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+/* Container to center content and limit width */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Heading */
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* Navigation links */
+nav {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  transition: background 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.6);
+}
+
+nav a:hover {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.85);
+  transform: translateY(-3px);
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+th, td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  vertical-align: middle;
+  color: #333;
+}
+
+th {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Form elements in table */
+.status-select, button {
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-size: 1rem;
+  border: 2px solid #764ba2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  background: white;
+  color: #764ba2;
+  min-width: 120px;
+}
+
+/* Status select hover */
+.status-select:hover {
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.6);
+}
+
+/* Delete button special styling */
+.delete-btn {
+  background: #d9534f;
+  border: none;
+  box-shadow: 0 5px 15px rgba(217, 83, 79, 0.6);
+}
+
+.delete-btn:hover {
+  background: #c9302c;
+  box-shadow: 0 8px 25px rgba(201, 48, 44, 0.85);
+  transform: translateY(-2px);
+}
+
+/* Status select on focus */
+.status-select:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  color: #4ecdc4;
+}
+
+/* Table form inline-block */
+form {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Add Reservation Button */
+.add-reservation-btn {
+  display: block;
+  margin: 0 auto 2rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(255, 107, 107, 0.8);
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.add-reservation-btn:hover {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  transform: translateY(-3px);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: white;
+  margin: 3% auto;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #764ba2;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ff6b6b;
+}
+
+form.add-reservation-form label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: 700;
+  color: #764ba2;
+}
+
+form.add-reservation-form input,
+form.add-reservation-form select,
+form.add-reservation-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #764ba2;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form.add-reservation-form input:focus,
+form.add-reservation-form select:focus,
+form.add-reservation-form textarea:focus {
+  border-color: #ff6b6b;
+  outline: none;
+  box-shadow: 0 0 10px #ff6b6b;
+}
+
+form.add-reservation-form button {
+  margin-top: 2rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border: none;
+  color: white;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(255, 107, 107, 0.8);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form.add-reservation-form button:hover {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  transform: translateY(-3px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: white;
+    padding: 1rem;
+  }
+
+  td {
+    border: none;
+    padding: 10px 0;
+    position: relative;
+    text-align: left;
+  }
+
+  td::before {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: 600;
+    color: #764ba2;
+  }
+
+  td:nth-of-type(1)::before { content: "ID"; }
+  td:nth-of-type(2)::before { content: "User"; }
+  td:nth-of-type(3)::before { content: "Email"; }
+  td:nth-of-type(4)::before { content: "Date"; }
+  td:nth-of-type(5)::before { content: "Time"; }
+  td:nth-of-type(6)::before { content: "Guests"; }
+  td:nth-of-type(7)::before { content: "Special Requests"; }
+  td:nth-of-type(8)::before { content: "Status"; }
+  td:nth-of-type(9)::before { content: "Actions"; }
+
+  .status-select, button.delete-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

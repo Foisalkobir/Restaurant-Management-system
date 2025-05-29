@@ -1,0 +1,79 @@
+main {
+  max-width: 600px;
+  margin: 100px auto 50px;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select,
+textarea,
+input[type="date"] {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 5px;
+  border: 2px solid #764ba2;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.success {
+  color: #27ae60;
+}
+
+a.back {
+  display: inline-block;
+  margin-top: 20px;
+  color: #667eea;
+  text-decoration: none;
+}
+
+a.back:hover {
+  text-decoration: underline;
+}

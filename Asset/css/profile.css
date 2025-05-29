@@ -1,0 +1,77 @@
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    margin: 0; padding: 0;
+  }
+  header {
+    background: #667eea;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1.5rem;
+  }
+  nav {
+    background: #4353b3;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #5668d9;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  nav a:hover {
+    background: #ff6b6b;
+  }
+  main {
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  form button {
+    margin-top: 1.5rem;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+  }
+  form button:hover {
+    background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  }
+  .messages {
+    margin-top: 1rem;
+  }
+  .error {
+    color: #e74c3c;
+    font-weight: 700;
+  }
+  .success {
+    color: #27ae60;
+    font-weight: 700;
+  }

@@ -1,64 +1,55 @@
-<?php
-
+<?php 
 session_start();
-require_once __DIR__ . '/../Model/db.php';  
+require_once('../model/userModel.php');
 
-$name     = trim($_POST['name']               ?? '');
-$email    = trim($_POST['email']              ?? '');
-$password =           $_POST['password']       ?? '';
-$confirm  =           $_POST['confirm_password'] ?? '';
+$info = $_REQUEST['info'];
+$data = json_decode($info, true); 
 
-$errors = [];
+if (isset($data['submit'])) { 
+    $username = trim($data['username']);
+    $password = trim($data['password']);
+    $confirm_pass = trim($data['confirm_password']);
+    $email = trim($data['email']);
+    $account_type = trim($data['account_type']);
+    $question = trim($data['question']);
+    $answer = trim($data['answer']);
 
-if ($name === '') {
-    $errors[] = 'Name is required.';
+    if (empty($username) || empty($password) || empty($confirm_pass) || empty($email) || 
+        empty($account_type) || empty($question) || empty($answer)) {
+        echo "Enter all fields.";
+    } elseif (strlen($username) < 4 || !ctype_alnum($username[0]) || strpos($username, ' ') !== false) {
+        echo "Username must be at least 4 characters long, start with an alphanumeric character, and contain no spaces.";
+    } elseif (strlen($password) < 4) {
+        echo "Password must be at least 4 characters long.";
+    } elseif ($password !== $confirm_pass) {
+        echo "Passwords do not match.";
+    } elseif (!isValidEmail($email)) {
+        echo "Enter a valid email address.";
+    } elseif (strlen($question) < 5 || strpos($question, "'") !== false || strpos($question, '"') !== false) {
+        echo "Security question must be at least 5 characters long and cannot contain quotes.";
+    } elseif (strpos($answer, "'") !== false || strpos($answer, '"') !== false) {
+        echo "Security answer cannot contain quotes.";
+    } elseif (userExists($username) == true) {
+        echo "Username is already taken. Please choose another.";
+    } else {
+        $status = addUser($username, $email, $password, $account_type, $question, $answer);
+        if ($status) {
+            addNotificationNewUser( $username); 
+            echo "success";
+        } else {
+            echo "Failed to register user. Try again.";
+        }
+    }
+    
+} 
+
+else {
+    echo "Invalid request";
 }
-if ($email === '') {
-    $errors[] = 'Email is required.';
-} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'Invalid email format.';
-}
 
-$stmt = mysqli_prepare($con, 'SELECT COUNT(*) FROM users WHERE email = ?');
-mysqli_stmt_bind_param($stmt, 's', $email);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $count);
-mysqli_stmt_fetch($stmt);
-mysqli_stmt_close($stmt);
-if ($count > 0) {
-    $errors[] = 'Email is already registered.';
-}
-
-if (strlen($password) < 6) {
-    $errors[] = 'Password must be at least 6 characters.';
-}
-if ($password !== $confirm) {
-    $errors[] = 'Passwords do not match.';
-}
-
-
-if (!empty($errors)) {
-    $_SESSION['signup_errors'] = $errors;
-    $_SESSION['old'] = ['name' => $name, 'email' => $email];
-    header('Location: ../View/signup.php');
-    exit;
-}
-
-$hash = password_hash($password, PASSWORD_DEFAULT);
-$stmt = mysqli_prepare(
-    $con,
-    'INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())'
-);
-mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $hash);
-$ok = mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
-
-if ($ok) {
-    $_SESSION['success'] = 'Account created successfully. Please log in.';
-    header('Location: ../View/login.php');
-    exit;
-} else {
-    $_SESSION['signup_errors'] = ['Database error: ' . mysqli_error($con)];
-    header('Location: ../View/signup.php');
-    exit;
+function isValidEmail($email) {
+    if (strpos($email, '@') !== false && strpos($email, '.') !== false) {
+        return true;
+    }
+    return false;
 }

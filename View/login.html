@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Restaurant Management System</title>
-  <link rel="stylesheet" href="../Asset/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | RestaurantPro</title>
+    <link rel="stylesheet" href="../asset/css/login.css" />
 </head>
 <body>
-  <div class="auth-container">
-    <form id="loginForm" action="../Controller/loginCheck.php" method="POST" novalidate>
-      <h2>Login</h2>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required minlength="6" placeholder="••••••">
-      </div>
-      <button type="submit" class="btn">Login</button>
-      <p class="small-text">Don't have an account? <a href="signup.html">Sign up</a></p>
-    </form>
-  </div>
-
-  <script>
-    // Basic JS validation using built-in functions
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      var form = e.target;
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        alert('Please fill out the form correctly.');
-      }
-    });
-  </script>
+    <fieldset>
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return false;">
+            <table align="center">
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="text" id="email" name="email" onkeyup="validateEmail()" />
+                    </td>
+                    <td>
+                        <p id="emailMessage"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" id="password" name="password" onkeyup="validatePassword()" />
+                    </td>
+                    <td>
+                        <p id="passwordMessage"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <input type="button" name="submit" value="Submit" onclick="ajaxLogin()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div class="extra-links">
+            <a href="signup.html">Sign Up</a> | 
+            <a href="forgot_password.html">Forgot Password?</a>
+        </div>
+    </fieldset>
+    <script src="../asset/js/login.js"></script>
 </body>
 </html>
-
-

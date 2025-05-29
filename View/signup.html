@@ -1,49 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - Restaurant Management System</title>
-  <link rel="stylesheet" href="../Asset/css/style.css">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../asset/css/signup.css">
 </head>
 <body>
-  <div class="auth-container">
-    <form id="signupForm" action="../Controller/signupCheck.php" method="POST" novalidate>
-      <h2>Sign Up</h2>
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required placeholder="John Doe">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required minlength="6" placeholder="••••••">
-      </div>
-      <div class="form-group">
-        <label for="confirm_password">Confirm Password</label>
-        <input type="password" id="confirm_password" name="confirm_password" required minlength="6" placeholder="••••••">
-      </div>
-      <button type="submit" class="btn">Create Account</button>
-      <p class="small-text">Already have an account? <a href="../View/login.html">Login</a></p>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      var form = e.target;
-      var pwd = form.password.value;
-      var cpwd = form.confirm_password.value;
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        alert('Please fill out all fields correctly.');
-      } else if (pwd !== cpwd) {
-        e.preventDefault();
-        alert('Passwords do not match.');
-      }
-    });
-  </script>
+    <fieldset>
+        <h2>Sign Up</h2>
+        <form id="signupForm" onsubmit="return false;">
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" id="username" name="username" onkeyup="validateUsername()" /></td>
+                    <td><p id="usernameMessage"></p></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="password" name="password" onkeyup="validatePassword()" /></td>
+                    <td><p id="passwordMessage"></p></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" id="confirmPassword" name="confirm_password" onkeyup="validateConfirmPassword()" /></td>
+                    <td><p id="confirmPasswordMessage"></p></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" id="email" name="email" onkeyup="validateEmail()" /></td>
+                    <td><p id="emailMessage"></p></td>
+                </tr>
+                <tr>
+                    <td>Account Type:</td>
+                    <td>
+                        <select name="accountType" id="accountType">
+                            <option value=""></option>
+                            <option value="user">User</option>
+                        </select>
+                    </td>
+                    <td><p id="accountTypeMessage"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Security Question:</td>
+                    <td><input type="text" id="securityQuestion" name="question" onkeyup="validateQuestion()" /></td>
+                    <td><p id="securityQuestionMessage"></p></td>
+                </tr>
+                <tr>
+                    <td>Security Answer:</td>
+                    <td><input type="text" id="securityAnswer" name="answer" onkeyup="validateAnswer()" /></td>
+                    <td><p id="securityAnswerMessage"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <br><input type="button" name="submit" value="Submit" onclick="ajaxSignup()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="login.html">Login</a>
+    </fieldset>
+    <script src="../asset/js/signup.js"></script>
 </body>
 </html>
